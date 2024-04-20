@@ -14,9 +14,8 @@ function getComputerChoice()
 }
 
 // Return 0 == Lose, Return 1 == Win Return 2 == Tie
-function playRound()
+function playRound(playerChoice)
 {
-    let playerChoice = prompt("Enter choice: ");
     let computerChoice = getComputerChoice();
 
     switch(playerChoice)
@@ -48,17 +47,11 @@ function playRound()
     }
 }
 
-function playGame()
+function playGame(playerChoice)
 {
-    let playerScore = 0;
-    let computerScore = 0;
+        let gameResult = playRound(playerChoice)
 
-    console.log("######################\n");
-    console.log("WELCOME TO ROCK-PAPER-SCISSORS\n")
-    console.log("######################\n\n");
-
-    
-        switch(playRound())
+        switch(gameResult)
         {
             case 0:
                 computerScore++;
@@ -78,29 +71,33 @@ function playGame()
                 console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
                 break;
         }
-
-    console.log("\n######################\n");
-    console.log("GAME OVER! ")
-
-    if(playerScore > computerScore)
-    {
-        console.log("Player has won the game!\n")
-        console.log("######################\n");
-    }
-    else if(computerScore > playerScore)
-    {
-        console.log("Computer has won the game!\n")
-        console.log("######################\n");
-    }
-    else
-    {
-        console.log("This game ended in a Tie!\n")
-        console.log("######################\n");
-    }
-
-    console.log("Final Score\n");
-    console.log("######################\n");
-    console.log("Player Score: " + playerScore + " Computer Score: " + computerScore + "\n");
 }
+
+// Player and computer Scores
+let playerScore = 0;
+let computerScore = 0;
+
+// Dom Selectors
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorButton = document.querySelector('.scissors');
+
+// Rock button logic
+rockButton.addEventListener("click", () => 
+{
+    playGame("rock");
+})
+
+// Paper button logic
+paperButton.addEventListener("click", () => 
+{
+    playGame("paper");
+})
+
+// Scissors button logic
+scissorButton.addEventListener("click", () => 
+{
+    playGame("scissors");
+})
 
 
