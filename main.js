@@ -56,9 +56,8 @@ function playGame()
     console.log("######################\n");
     console.log("WELCOME TO ROCK-PAPER-SCISSORS\n")
     console.log("######################\n\n");
-    // Play 5 Rounds
-    for(let i = 0; i < 5; i++)
-    {
+
+    
         switch(playRound())
         {
             case 0:
@@ -79,7 +78,6 @@ function playGame()
                 console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
                 break;
         }
-    }
 
     console.log("\n######################\n");
     console.log("GAME OVER! ")
@@ -105,6 +103,4 @@ function playGame()
     console.log("Player Score: " + playerScore + " Computer Score: " + computerScore + "\n");
 }
 
-
-playGame();
 
