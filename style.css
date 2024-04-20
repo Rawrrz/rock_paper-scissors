@@ -11,19 +11,47 @@ body *
     display: flex;
     align-items: center;
 }
+.score
+{
+    width: 40%;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bolder;
+    color:aliceblue;
+    margin-left: 30%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.face-output
+{
+    width: 100%;
+    margin-top: 9%;
+    margin-bottom: 3%;
+    height: 260px;
+    flex-direction: column;
+}
+
+.output
+{
+    text-align: center;
+    font-size: 100px;
+    color:aliceblue;
+    margin-right: 20px;
+    width: auto;
+}
 
 .face
 {
+    text-align: center;
     font-size: 100px;
     color:aliceblue;
-    margin-top: 250px;
-    padding-left: 48%;
     margin-right: 20px;
-    padding-top: 40px;
+    width: auto;
 
 }
 
-.selectors
+.ui-main
 {
     align-items: center;
     flex-direction: row;

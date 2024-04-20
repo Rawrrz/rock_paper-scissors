@@ -16,7 +16,7 @@ function getComputerChoice()
 // Return 0 == Lose, Return 1 == Win Return 2 == Tie
 function playRound(playerChoice)
 {
-    let computerChoice = getComputerChoice();
+    computerChoice = getComputerChoice();
 
     switch(playerChoice)
     {
@@ -55,29 +55,61 @@ function playGame(playerChoice)
         {
             case 0:
                 computerScore++;
-                console.log("\n######################\n");
-                console.log("Computer Wins This Round!\n");
-                console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
+                face.textContent = "^o^";
+                output.textContent = "I picked " + computerChoice + " I win!"
                 break;
             case 1:
                 playerScore++;
-                console.log("\n######################\n");
-                console.log("Player Wins This Round!\n");
-                console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
+                face.textContent = "0_0";
+                output.textContent = "I picked " + computerChoice + " I lose!"
                 break;
             case 2:
                 console.log("\n######################\n");
-                console.log("This Round Is A Tie!\n");
-                console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
+                face.textContent = "-_-";
+                output.textContent = "I picked " + computerChoice + " It's a freakin tie!"
                 break;
         }
+        score.textContent = "Player " + playerScore + " || AI " + computerScore;
+
+        checkScore(playerScore, computerScore);
+}
+
+function checkScore(playerScore, computerChoice)
+{
+    if(playerScore == 5)
+    {
+        face.textContent = "0w0";
+        output.textContent = "You made it to a score of 5 you win the game!";
+        resetScores();
+    }
+    else if(computerScore == 5)
+    {
+        face.textContent = "0w0";
+        output.textContent = "I made it to a score of 5 I win the game!";
+        resetScores();
+    }
+}
+
+function resetScores() 
+{
+    // Reset scores to 0
+    playerScore = 0;
+    computerScore = 0;
+
+    // Update score on DOM
+    score.textContent = "Player " + playerScore + " || AI " + computerScore;
 }
 
 // Player and computer Scores
 let playerScore = 0;
 let computerScore = 0;
 
+let computerChoice;
+
 // Dom Selectors
+let score = document.querySelector('.score');
+let face = document.querySelector('.face');
+let output = document.querySelector('.output');
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorButton = document.querySelector('.scissors');
